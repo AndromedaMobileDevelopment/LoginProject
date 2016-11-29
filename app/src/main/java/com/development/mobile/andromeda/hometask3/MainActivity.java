@@ -2,6 +2,7 @@ package com.development.mobile.andromeda.hometask3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +16,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button reg;
     private Button log;
 
-    private TextView email_text;
-    private TextView password_text;
+    private TextView login;
 
-    private String email;
-    private String password;
+    private String email=null;
+    private String password=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         email_edit = (EditText) findViewById(R.id.editText);
         password_edit = (EditText) findViewById(R.id.editText2);
 
-        email_text = (TextView) findViewById(R.id.textView2);
-        password_text = (TextView) findViewById(R.id.textView3);
+        login = (TextView) findViewById(R.id.textView);
 
         reg = (Button) findViewById(R.id.button);
         log = (Button) findViewById(R.id.button2);
@@ -43,14 +42,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
 
             case R.id.button:
-
-            email = email_edit.getText().toString();
-            password = password_edit.getText().toString();
+                email = email_edit.getText().toString();
+                password = password_edit.getText().toString();
                 break;
 
             case R.id.button2:
-                password_text.setText(password);
-                email_text.setText(email);
+                if(email != null && password != null)
+                {
+                    Log.d("EMAIL",email);
+                    Log.d("PASSWORD",password);
+                    Log.d("PASSWORD",password_edit.getText().toString());
+                    if(email_edit.getText().toString().equals(email) && password_edit.getText().toString().equals(password)) {
+                      login.setText("Вход успешен!");
+                    }
+                    else {login.setText("Неправильный логин или пароль!");}
+                }
+                else {login.setText("Вы не зарегестрировались!");}
                 break;
         }
     }

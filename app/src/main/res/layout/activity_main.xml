@@ -41,7 +41,7 @@
         android:id="@+id/button" />
 
     <Button
-        android:text="Показать"
+        android:text="Вход"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
@@ -50,20 +50,14 @@
         android:id="@+id/button2" />
 
     <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Войдите в аккаунт!"
+        android:gravity="center"
+        android:layout_marginTop="68dp"
+        android:id="@+id/textView"
         android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:id="@+id/textView2" />
+        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="24dp"
-        android:id="@+id/textView3" />
+
 </RelativeLayout>
